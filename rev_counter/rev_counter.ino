@@ -1,9 +1,9 @@
 /*
 
-  Hall-efect sensor based rev counter
+  Hall-effect sensor based rev counter
 
   Goals: 
-    - Use hall-efect sensor
+    - Use hall-effect sensor (UGN3503)
     - detect input changes using interrupts
     - count changes per second ( RPS - revolutions per second )
     - scale up RPS to RPM ( revolutions per minute ) or RPH ( revolutions per hour )
@@ -14,8 +14,7 @@
     
 */
 
-int sensor = 0;
-int revs = 0;
+int revsCounter = 0;
 
 // Arduino UNO support interrupts only on selected pins
 // see: http://arduino.cc/en/Reference/attachInterrupt
