@@ -4,8 +4,8 @@
 #include "Arduino.h"
 
 enum {
-  Interrupt0,
-  Interrupt1
+  Interrupt0, // Pin 2
+  Interrupt1  // Pin 3
 } typedef Interrupt;
 
 class Speedo {
