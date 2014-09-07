@@ -15,15 +15,17 @@
 */
 
 #include "Speedo.h"
+#include "Display.h"
+#include <TM1638.h>
 
 Speedo speedo = Speedo::sharedSpeedo();
+TM1638 displayModule(8, 9, 10);
 
 void setup() {
   
   Serial.begin(9600); // DEBUG
 
   speedo.setup();
-  
 }
 
 void loop() {
@@ -31,7 +33,18 @@ void loop() {
   float mph = speedo.readMPHAndReset(17);
   Serial.println(mph);
   
+  setSpeedAndOdo( 10, 11);
+  
   delay(1000);
+  
+}
+
+void setSpeedAndOdo(unsigned long speed, unsigned long odometer) {
+  
+    unsigned long value = odometer*1000+speed;
+
+    byte separator = 0x08;
+    displayModule.setDisplayToDecNumber(value,separator);
   
 }
 
